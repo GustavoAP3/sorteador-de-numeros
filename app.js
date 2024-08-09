@@ -4,6 +4,15 @@ function sortear(){
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
     
+    if(de > ate){
+        alert('Campo "Do número" deve ser inferior ao campo "Até o número". Verifique!');
+        return;
+    }
+    if(quantidade > (ate - de + 1)){
+        alert('A quantidade deve ser um número menor do que o intervalo dos números!');
+        return;
+    }
+    
     let sorteados = [];
     let num;
 
@@ -15,7 +24,6 @@ function sortear(){
         sorteados.push(num);
     }
 
-    let resultado = document.getElementById('resultado');
     resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados}</label>`;
     // .textContent
     alterarStatusBotao();
